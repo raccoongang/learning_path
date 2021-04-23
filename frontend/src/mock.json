@@ -1,26 +1,41 @@
 {
-    "data": [
-        {
-            "id": 1,
-            "url": "http://",
-            "title": "Resource 1",
-            "description": "Some description",
-            "children": [
-                {
-                    "id": 11,
-                    "url": "http://",
-                    "title": "SubResource 1",
-                    "description": "Some description",
-                    "children": []
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "url": "http://",
-            "title": "Resource 2",
-            "description": "Some description",
-            "children": []
-        }
-    ]
+  "id": 1,
+  "url": "http://",
+  "title": "Python Ninja",
+  "description": "Some description",
+  "type": "pathway",
+  "children": [
+    {
+      "id": 11,
+      "url": "http://",
+      "title": "SubResource 1",
+      "description": "Some description",
+      "type": "article",
+      "children": []
+    },
+    {
+      "id": 11,
+      "url": "http://",
+      "title": "SubResource 1",
+      "description": "Some description",
+      "type": "video",
+      "children": []
+    },
+    {
+      "id": 11,
+      "url": "http://",
+      "title": "SubResource 1",
+      "description": "Some description",
+      "type": "generic",
+      "children": []
+    },
+    {
+      "id": 11,
+      "url": "http://",
+      "title": "SubResource 1",
+      "description": "Some description",
+      "type": "course",
+      "children": []
+    }
+  ]
 }
