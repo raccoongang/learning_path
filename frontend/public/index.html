@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+    <style>
+    body {
+        font-size: 18px;
+        color: #222;
+    }
+
+    .container {
+        max-width: 1170px;
+        padding: 0 15px;
+        margin: 0 auto;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .LearningTitle {
+        margin: 20px 0 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .LearningList {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .LearningItem {
+        margin-bottom: 15px;
+    }
+
+    .LearningItemContent {
+        border: 1px solid #eee;
+        padding: 10px;
+        border-radius: 10px;
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .LearningItemContent:hover .Btn {
+        opacity: 1;
+    }
+
+    .LearningItem_checked .Btn,
+    .LearningItem_checked:hover .Btn,
+    .LearningItem_checked:focus .Btn {
+        opacity: .5;
+    }
+
+    .LearningItem_checked .LearningItemContent {
+        border-color: green;
+    }
+
+    .LearningIconWrapper,
+    .LearningAdditionalIconWrapper {
+        display: inline-block;
+        border: 1px solid silver;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        position: relative;
+        flex-shrink: 0;
+    }
+
+    .LearningIconWrapper {
+        background: #222;
+        color: #fff;
+    }
+
+    .LearningAdditionalIconWrapper {
+        width: 30px;
+        height: 30px;
+    }
+
+    .LearningItemTitle {
+        margin-left: 30px;
+        margin-right: 20px;
+        color: #0b6bad;
+        text-decoration: none;
+        transition: opacity .2s ease-in-out;
+    }
+
+    .LearningItemTitle:hover,
+    .LearningItemTitle:focus {
+        opacity: .7;
+    }
+
+    .LearningIcon,
+    .LearningAdditionalIcon {
+        max-width: 50%;
+        max-height: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .LearningAdditionalList {
+        list-style: none;
+        padding: 0;
+        margin: 5px 20px 0 0;
+        display: flex;
+        align-content: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .LearningAdditionalLink {
+        color: #222;
+        opacity: .5;
+        transition: opacity .2s ease-in-out;
+        margin-right: 15px;
+    }
+
+    .LearningAdditionalLink:hover,
+    .LearningAdditionalLink:focus {
+        opacity: 1;
+    }
+
+    .Btn {
+        padding: 6px 20px;
+        border: none;
+        color: #222;
+        background: transparent;
+        border-radius: 5px;
+        flex-shrink: 0;
+    }
+
+    .Btn:hover,
+    .Btn:focus {
+        cursor: pointer;
+        opacity: .7;
+    }
+
+    .Btn_ready {
+        border: 1px solid silver;
+        opacity: 0;
+        background: green;
+        margin-left: auto;
+        color: #fff;
+    }
+
+    .Rating {
+        display: flex;
+        margin-top: 10px;
+        margin-left: auto;
+    }
+
+    .RatingBtn {
+        background: transparent;
+        border: none;
+        display: block;
+        width: 25px;
+        height: 25px;
+        padding: 0;
+        color: #222;
+        opacity: .5;
+        margin-left: 15px;
+    }
+
+    .RatingBtn:hover,
+    .RatingBtn:focus {
+        cursor: pointer;
+        opacity: 1;
+        color: green;
+    }
+
+    .RatingBtn_dislike:hover,
+    .RatingBtn_dislike:focus {
+        color: red;
+    }
+
+    .RatingIcon {
+        max-width: 80%;
+        max-height: 80%;
+    }
+
+    .LearningBottomWrapper {
+        display: flex;
+        align-content: center;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+</style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <svg style="display: none">
+    <symbol id="icon-article" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M432 416H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-128H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-128H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-128H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"></path></symbol>
+    <symbol id="icon-microphone" viewBox="0 0 352 512"><path fill="currentColor" d="M336 192h-16c-8.84 0-16 7.16-16 16v48c0 74.8-64.49 134.82-140.79 127.38C96.71 376.89 48 317.11 48 250.3V208c0-8.84-7.16-16-16-16H16c-8.84 0-16 7.16-16 16v40.16c0 89.64 63.97 169.55 152 181.69V464H96c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16h-56v-33.77C285.71 418.47 352 344.9 352 256v-48c0-8.84-7.16-16-16-16zM176 352c53.02 0 96-42.98 96-96h-85.33c-5.89 0-10.67-3.58-10.67-8v-16c0-4.42 4.78-8 10.67-8H272v-32h-85.33c-5.89 0-10.67-3.58-10.67-8v-16c0-4.42 4.78-8 10.67-8H272v-32h-85.33c-5.89 0-10.67-3.58-10.67-8v-16c0-4.42 4.78-8 10.67-8H272c0-53.02-42.98-96-96-96S80 42.98 80 96v160c0 53.02 42.98 96 96 96z"></path></symbol>
+    <symbol id="icon-youtube" viewBox="0 0 576 512"><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></symbol>
+    <symbol id="icon-comments" viewBox="0 0 576 512"><path fill="currentColor" d="M416 192c0-88.4-93.1-160-208-160S0 103.6 0 192c0 34.3 14.1 65.9 38 92-13.4 30.2-35.5 54.2-35.8 54.5-2.2 2.3-2.8 5.7-1.5 8.7S4.8 352 8 352c36.6 0 66.9-12.3 88.7-25 32.2 15.7 70.3 25 111.3 25 114.9 0 208-71.6 208-160zm122 220c23.9-26 38-57.7 38-92 0-66.9-53.5-124.2-129.3-148.1.9 6.6 1.3 13.3 1.3 20.1 0 105.9-107.7 192-240 192-10.8 0-21.3-.8-31.7-1.9C207.8 439.6 281.8 480 368 480c41 0 79.1-9.2 111.3-25 21.8 12.7 52.1 25 88.7 25 3.2 0 6.1-1.9 7.3-4.8 1.3-2.9.7-6.3-1.5-8.7-.3-.3-22.4-24.2-35.8-54.5z"></path></symbol>
+    <symbol id="icon-like" viewBox="0 0 512 512"><path fill="currentColor" d="M104 224H24c-13.255 0-24 10.745-24 24v240c0 13.255 10.745 24 24 24h80c13.255 0 24-10.745 24-24V248c0-13.255-10.745-24-24-24zM64 472c-13.255 0-24-10.745-24-24s10.745-24 24-24 24 10.745 24 24-10.745 24-24 24zM384 81.452c0 42.416-25.97 66.208-33.277 94.548h101.723c33.397 0 59.397 27.746 59.553 58.098.084 17.938-7.546 37.249-19.439 49.197l-.11.11c9.836 23.337 8.237 56.037-9.308 79.469 8.681 25.895-.069 57.704-16.382 74.757 4.298 17.598 2.244 32.575-6.148 44.632C440.202 511.587 389.616 512 346.839 512l-2.845-.001c-48.287-.017-87.806-17.598-119.56-31.725-15.957-7.099-36.821-15.887-52.651-16.178-6.54-.12-11.783-5.457-11.783-11.998v-213.77c0-3.2 1.282-6.271 3.558-8.521 39.614-39.144 56.648-80.587 89.117-113.111 14.804-14.832 20.188-37.236 25.393-58.902C282.515 39.293 291.817 0 312 0c24 0 72 8 72 81.452z"></path></symbol>
+    <symbol id="icon-dislike" viewBox="0 0 512 512"><path fill="currentColor" d="M0 56v240c0 13.255 10.745 24 24 24h80c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H24C10.745 32 0 42.745 0 56zm40 200c0-13.255 10.745-24 24-24s24 10.745 24 24-10.745 24-24 24-24-10.745-24-24zm272 256c-20.183 0-29.485-39.293-33.931-57.795-5.206-21.666-10.589-44.07-25.393-58.902-32.469-32.524-49.503-73.967-89.117-113.111a11.98 11.98 0 0 1-3.558-8.521V59.901c0-6.541 5.243-11.878 11.783-11.998 15.831-.29 36.694-9.079 52.651-16.178C256.189 17.598 295.709.017 343.995 0h2.844c42.777 0 93.363.413 113.774 29.737 8.392 12.057 10.446 27.034 6.148 44.632 16.312 17.053 25.063 48.863 16.382 74.757 17.544 23.432 19.143 56.132 9.308 79.469l.11.11c11.893 11.949 19.523 31.259 19.439 49.197-.156 30.352-26.157 58.098-59.553 58.098H350.723C358.03 364.34 384 388.132 384 430.548 384 504 336 512 312 512z"></path></symbol>
+</svg>
+    <div id="root"></div>
+    <div class="container">
+    <h2 class="LearningTitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, quia?</h2>
+    <ul class="LearningList">
+        <li class="LearningItem LearningItem_checked">
+            <div class="LearningItemContent">
+                <span class="LearningIconWrapper">
+                    <svg class="LearningIcon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-article"></use></svg>
+                </span>
+                <a href="#" class="LearningItemTitle">Some title for the learning Some title for the learning Some title for the learning</a>
+                <button class="Btn Btn_ready">Mark as ready</button>
+            </div>
+            <div class="LearningBottomWrapper">
+                <ul class="LearningAdditionalList">
+                <li class="LearningAdditionalItem">
+                    <a href="#" class="LearningAdditionalLink">
+                        <span class="LearningAdditionalIconWrapper">
+                        <svg class="LearningAdditionalIcon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-article"></use></svg>
+                    </span>
+                    </a>
+                </li>
+                <li class="LearningAdditionalItem">
+                    <a href="#" class="LearningAdditionalLink">
+                        <span class="LearningAdditionalIconWrapper">
+                        <svg class="LearningAdditionalIcon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-microphone"></use></svg>
+                    </span>
+                    </a>
+                </li>
+                <li class="LearningAdditionalItem">
+                    <a href="#" class="LearningAdditionalLink">
+                        <span class="LearningAdditionalIconWrapper">
+                        <svg class="LearningAdditionalIcon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-youtube"></use></svg>
+                    </span>
+                    </a>
+                </li>
+                <li class="LearningAdditionalItem">
+                    <a href="#" class="LearningAdditionalLink">
+                        <span class="LearningAdditionalIconWrapper">
+                        <svg class="LearningAdditionalIcon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-comments"></use></svg>
+                    </span>
+                    </a>
+                </li>
+            </ul>
+                <div class="Rating">
+                    <button class="RatingBtn RatingBtn_like" aria-label="like">
+                        <svg class="RatingIcon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-like"></use></svg>
+                    </button>
+                    <button class="RatingBtn RatingBtn_dislike" aria-label="dislike">
+                        <svg class="RatingIcon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-dislike"></use></svg>
+                    </button>
+                </div>
+            </div>
+        </li>
+        <li class="LearningItem">
+            <div class="LearningItemContent">
+                <span class="LearningIconWrapper">
+                    <svg class="LearningIcon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-youtube"></use></svg>
+                </span>
+                <a href="#" class="LearningItemTitle">Some title for the learning Some title for the learning Some title for the learning Some title for the learning Some title for the learning Some title for the learning Some title for the learning Some title for the learning Some title for the learning</a>
+                <button class="Btn Btn_ready">Mark as ready</button>
+            </div>
+            <div class="LearningBottomWrapper">
+                <div class="Rating">
+                    <button class="RatingBtn RatingBtn_like" aria-label="like">
+                        <svg class="RatingIcon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-like"></use></svg>
+                    </button>
+                    <button class="RatingBtn RatingBtn_dislike" aria-label="dislike">
+                        <svg class="RatingIcon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-dislike"></use></svg>
+                    </button>
+                </div>
+            </div>
+        </li>
+        <li class="LearningItem">
+            <div class="LearningItemContent">
+                <span class="LearningIconWrapper">
+                    <svg class="LearningIcon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-article"></use></svg>
+                </span>
+                <a href="#" class="LearningItemTitle">Some title for the learning Some title for the learning Some title for the learning Some title for the learning Some title for the learning Some title for the learning Some title for the learning Some title for the learning Some title for the learning Some title for the learning Some title for the learning Some title for the learning</a>
+                <button class="Btn Btn_ready">Mark as ready</button>
+            </div>
+            <div class="LearningBottomWrapper">
+                <ul class="LearningAdditionalList">
+                    <li class="LearningAdditionalItem">
+                        <a href="#" class="LearningAdditionalLink">
+                        <span class="LearningAdditionalIconWrapper">
+                        <svg class="LearningAdditionalIcon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-youtube"></use></svg>
+                    </span>
+                        </a>
+                    </li>
+                    <li class="LearningAdditionalItem">
+                        <a href="#" class="LearningAdditionalLink">
+                        <span class="LearningAdditionalIconWrapper">
+                        <svg class="LearningAdditionalIcon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-comments"></use></svg>
+                    </span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="Rating">
+                    <button class="RatingBtn RatingBtn_like" aria-label="like">
+                        <svg class="RatingIcon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-like"></use></svg>
+                    </button>
+                    <button class="RatingBtn RatingBtn_dislike" aria-label="dislike">
+                        <svg class="RatingIcon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-dislike"></use></svg>
+                    </button>
+                </div>
+            </div>
+        </li>
+        <li class="LearningItem">
+            <div class="LearningItemContent">
+                <span class="LearningIconWrapper">
+                    <svg class="LearningIcon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-comments"></use></svg>
+                </span>
+                <a href="#" class="LearningItemTitle">Some title for the learning Some title for the learning Some title for the learning Some title for the learning Some title for the learning Some title for the learning</a>
+                <button class="Btn Btn_ready">Mark as ready</button>
+            </div>
+            <div class="LearningBottomWrapper">
+                <ul class="LearningAdditionalList">
+                    <li class="LearningAdditionalItem">
+                        <a href="#" class="LearningAdditionalLink">
+                        <span class="LearningAdditionalIconWrapper">
+                        <svg class="LearningAdditionalIcon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-youtube"></use></svg>
+                    </span>
+                        </a>
+                    </li>
+                    <li class="LearningAdditionalItem">
+                        <a href="#" class="LearningAdditionalLink">
+                        <span class="LearningAdditionalIconWrapper">
+                        <svg class="LearningAdditionalIcon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-article"></use></svg>
+                    </span>
+                        </a>
+                    </li>
+                    <li class="LearningAdditionalItem">
+                        <a href="#" class="LearningAdditionalLink">
+                        <span class="LearningAdditionalIconWrapper">
+                        <svg class="LearningAdditionalIcon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-youtube"></use></svg>
+                    </span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="Rating">
+                    <button class="RatingBtn RatingBtn_like" aria-label="like">
+                        <svg class="RatingIcon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-like"></use></svg>
+                    </button>
+                    <button class="RatingBtn RatingBtn_dislike" aria-label="dislike">
+                        <svg class="RatingIcon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-dislike"></use></svg>
+                    </button>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>
