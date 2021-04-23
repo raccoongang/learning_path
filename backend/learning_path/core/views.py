@@ -9,3 +9,7 @@ class NodeViewSet(viewsets.ModelViewSet):
     serializer_class = NodeSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+    def get_queryset(self):
+        if node_type:=self.request.GET.get('type'):
+            return Node.objects.filter(type=node_type)
+        return super().get_queryset()
