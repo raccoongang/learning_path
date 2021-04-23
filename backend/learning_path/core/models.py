@@ -12,9 +12,12 @@ class Node(models.Model):
         GENERIC = 'generic', _('Generic')
 
     url = models.URLField(verbose_name="Sourse url")
-    title = models.CharField(max_length=50, verbose_name="Sourse url")
-    description = models.CharField(max_length=50, verbose_name="Sourse url")
+    title = models.CharField(max_length=50, verbose_name="Node title")
+    description = models.CharField(max_length=50)
     type = models.CharField(
-        max_length=7, choices=NodeTypes.choices, default=NodeTypes.GENERIC, verbose_name="Sourse url"
+        max_length=7, choices=NodeTypes.choices, default=NodeTypes.GENERIC, verbose_name="Sourse type"
     )
-    children = models.ForeignKey('self', on_delete=models.PROTECT)
+    children = models.ManyToManyField('self', null=True, blank=True)
+
+    def __str__(self) -> str:
+        return f"{self.__class__.__name__}-{self.pk}: {self.title}"
