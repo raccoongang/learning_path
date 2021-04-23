@@ -1,4 +1,4 @@
-.backend/
+.db_data/
 *.pyc
 
 .idea
