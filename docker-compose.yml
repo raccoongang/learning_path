@@ -19,15 +19,26 @@ services:
     build: .
     container_name: web
     restart: always
-    command: python ./learning_path/manage.py runserver 0.0.0.0:8000
+    command: python ./learning_path/manage.py runserver 0.0.0.0:80
+    ports:
+      - "80:80"
     volumes:
       - ./backend:/backend
     env_file:
       - ./.docker/db.env
-    ports:
-      - "8000:8000"
     depends_on:
       db:
         condition: service_healthy
+
+#
+#  nginx:
+#    restart: always
+#    build: ./nginx/
+#    ports:
+#      - "80:80"
+#    links:
+#      - web:web
+
+
 volumes:
   db_data:
