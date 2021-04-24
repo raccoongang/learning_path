@@ -1,12 +1,5 @@
 import React from 'react';
 
-const Types = Object.freeze({
-    PATHWAY: 'pathway',
-    COURSE: 'course',
-    ARTICLE: 'article',
-    VIDEO: 'video',
-    GENERIC: 'generic'
-});
 
 const Node = ({url, title, description, type}) => {
     console.log(url, title, description);
