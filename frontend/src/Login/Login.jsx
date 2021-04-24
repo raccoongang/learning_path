@@ -12,7 +12,7 @@ const Login = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post('/token/obtain/', {
+            const response = await axios.post('/auth/token/obtain/', {
                 username: state.username,
                 password: state.password
             });
