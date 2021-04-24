@@ -31,6 +31,11 @@ ALLOWED_HOSTS = [
   '0.0.0.0',
   'learning-path.raccoongang.com']
 
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
+    'https://learning-path.raccoongang.com'
+)
+
 SITE_ID = 1
 
 # Application definition
