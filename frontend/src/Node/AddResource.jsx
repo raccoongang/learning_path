@@ -1,8 +1,8 @@
 import React from 'react';
 import {Types} from "../constants";
 
-const AddResourseForm = () => {
-    return <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+const AddResourseForm = ({onSubmit}) => {
+    return <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={onSubmit}>
         <div className="md:flex md:items-center mb-6">
             <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="title">
                 Name
@@ -15,7 +15,7 @@ const AddResourseForm = () => {
             <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="description">
                 Description
             </label>
-            <input
+            <textarea
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="description" type="text"/>
         </div>
@@ -32,10 +32,10 @@ const AddResourseForm = () => {
                 Type
             </label>
             <select
-                className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                className="capitalize shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:bg-white"
                 id="grid-state">
                 {Object.keys(Types).map(
-                    (type, idx) => <option key={idx} className="capitalize">{Types[type]}</option>
+                    (type, idx) => <option key={idx} className="">{Types[type]}</option>
                 )}
             </select>
         </div>
@@ -52,7 +52,7 @@ const AddResourseForm = () => {
 const AddResource = () => {
 
     return <div className="w-full max-w-md">
-        <AddResourseForm/>
+        <AddResourseForm onSubmit={() => {}}/>
     </div>;
 };
 
