@@ -3,7 +3,18 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Node(models.Model):
+    """
+    Node model.
 
+    Each node could be one of the type:
+        - pathway
+        - course
+        - video
+        - article
+        - generic (any other type)
+
+    Could contain a many-to-many references on other nodes.
+    """
     class NodeTypes(models.TextChoices):
         PATHWAY = 'pathway', _('Pathway')
         COURSE = 'course', _('Course')
@@ -19,5 +30,7 @@ class Node(models.Model):
     )
     children = models.ManyToManyField('self', null=True, blank=True, symmetrical=False)
 
-    def __str__(self) -> str:
+    # TODO: prevent saving child linked to any ancestor to prevent cyclic serializing when retrieving through API
+
+    def __str__(self):
         return f"{self.__class__.__name__}-{self.pk}: {self.title}"

@@ -3,7 +3,12 @@ from rest_framework import serializers
 from core.models import Node
 
 
-class NodeSerializer(serializers.ModelSerializer):
+class NodeReadSerializer(serializers.ModelSerializer):
+    """
+    Read serializer for the Node model.
+
+    Represents nodes with all descendants (recursively).
+    """
     children = serializers.SerializerMethodField()
 
     class Meta:
@@ -12,4 +17,13 @@ class NodeSerializer(serializers.ModelSerializer):
 
     def get_children(self, obj):
         if obj.children:
-            return NodeSerializer(obj.children, many=True).data
+            return NodeReadSerializer(obj.children, many=True).data
+
+
+class NodeWriteSerializer(serializers.ModelSerializer):
+    """
+    Write serializer for the Node model.
+    """
+    class Meta:
+        model = Node
+        fields = ['id', 'url', 'title', 'description', 'type', 'children']
