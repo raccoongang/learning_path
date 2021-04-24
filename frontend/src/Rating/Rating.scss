@@ -1,0 +1,49 @@
+.Rating {
+    display: flex;
+    margin-top: 10px;
+    margin-left: auto;
+}
+
+.RatingBtn {
+    $self: &;
+
+    background: transparent;
+    border: none;
+    display: block;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    color: #222;
+    opacity: .5;
+    margin-left: 15px;
+
+    &:hover {
+        cursor: pointer;
+        opacity: 1;
+    }
+
+    &_active {
+        opacity: 1;
+
+        &.RatingBtn_like {
+            color: green;
+        }
+
+        &.RatingBtn_dislike {
+            color: red;
+        }
+    }
+
+    &_like:hover {
+        color: green;
+    }
+
+    &_dislike:hover {
+        color: red;
+    }
+}
+
+.RatingIcon {
+    max-width: 80%;
+    max-height: 80%;
+}
