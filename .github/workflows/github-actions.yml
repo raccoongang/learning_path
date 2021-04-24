@@ -1,16 +1,18 @@
-name: remote ssh command
-on: [push]
+name: Deploy
+on:
+  push:
+    branches:
+      - main
 jobs:
-
   build:
-    name: Build
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@master
       with:
-        host: staging07.raccoongang.com
-        username: raccoon
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 28177
         script: |

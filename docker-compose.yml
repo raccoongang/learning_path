@@ -30,15 +30,6 @@ services:
       db:
         condition: service_healthy
 
-#
-#  nginx:
-#    restart: always
-#    build: ./nginx/
-#    ports:
-#      - "80:80"
-#    links:
-#      - web:web
-
 
 volumes:
   db_data:
