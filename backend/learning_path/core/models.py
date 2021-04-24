@@ -17,7 +17,7 @@ class Node(models.Model):
     type = models.CharField(
         max_length=7, choices=NodeTypes.choices, default=NodeTypes.GENERIC, verbose_name="Sourse type"
     )
-    children = models.ManyToManyField('self', null=True, blank=True)
+    children = models.ManyToManyField('self', null=True, blank=True, symmetrical=False)
 
     def __str__(self) -> str:
         return f"{self.__class__.__name__}-{self.pk}: {self.title}"
