@@ -23,4 +23,5 @@ urlpatterns = [
     path('', include('core.urls')),
     path('accounts/', include('allauth.urls')),
     path('logout', LogoutView.as_view()),
+    path('api/auth/', include('authentication.urls'))
 ]

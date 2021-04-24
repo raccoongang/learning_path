@@ -2,7 +2,8 @@
   "id": 1,
   "url": "http://",
   "title": "Python Ninja",
-  "description": "Some description",
+  "description": "Python is a multi-paradigm programming language. Object-oriented programming and structured programming are fully supported, and many of its features ...",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
   "type": "pathway",
   "children": [
     {

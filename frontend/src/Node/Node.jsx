@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const Node = ({url, title, description, type}) => {
     console.log(url, title, description);
     return <div className="LearningItem LearningItem_checked">
