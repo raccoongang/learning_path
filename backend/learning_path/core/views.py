@@ -54,7 +54,7 @@ def clone_api_view(request, format=None):
         if children_ids:=target_node.children.values_list('id', flat=True):
             new_node.children.add(*[i for i in children_ids])
         log.warning(f'Node {new_node.id} was cloned from {target_node.id}.')
-        data = NodeSerializer(new_node).data
+        data = NodeReadSerializer(new_node).data
     return Response(data)
 
 
