@@ -52,8 +52,7 @@ THIRD_PARTY_APPS = [
 ]
 
 PROJECT_APPS = [
-    'auth.apps',
-    'core'
+    'core',
     'authentication.apps.AuthConfig',
 ]
 
