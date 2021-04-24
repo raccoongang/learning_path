@@ -6,3 +6,34 @@
 body, html {
   background-color: rgb(237, 242, 246);
 }
+
+body {
+  line-height: 1.2;
+  color: #222;
+
+  button:focus,
+  a:focus {
+    outline: none;
+  }
+}
+
+#root .container {
+  margin: 0 auto;
+  padding: 15px;
+  background: #fff;
+  border-radius: 15px;
+  width: 1170px;
+  max-width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+
+}
+
+.Header {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+

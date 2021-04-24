@@ -1,5 +1,40 @@
+@mixin on-circle($item-count, $circle-size, $item-size) {
+    position: relative;
+    width:  $circle-size;
+    height: $circle-size;
+    padding: 0;
+    border-radius: 50%;
+    list-style: none;
+
+    .UserSkill {
+        position: absolute;
+        top:  50%;
+        left: 50%;
+        width:  $item-size;
+        height: $item-size;
+        margin: -($item-size / 2);
+
+        $angle: (360 / $item-count);
+        $rot: 0;
+
+        @for $i from 1 through $item-count {
+            &:nth-of-type(#{$i}) {
+                transform:
+                        rotate($rot * 1deg)
+                        translate($circle-size / 1.5)
+                        rotate($rot * -1deg);
+            }
+
+            $rot: $rot + $angle;
+        }
+    }
+}
+
+
 .LearningTitle {
     margin: 20px 0 15px;
+    font-weight: 700;
+    font-size: 23px;
 }
 
 .LearningDescription {
@@ -138,4 +173,38 @@
     align-content: center;
     justify-content: space-between;
     padding: 0 20px;
+}
+
+.UserStatus {
+    @include on-circle($item-count: 3, $circle-size: 250px, $item-size: 80px);
+
+    margin: 100px auto 100px;
+    width: 200px;
+    position: relative;
+}
+
+.UserLogo {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.UserName {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.UserSkill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: url('../image/progress-cicle.png') no-repeat center center / contain;
+}
+
+.UserSkillImage {
+    max-width: 50%;
+    max-height: 50%;
 }
