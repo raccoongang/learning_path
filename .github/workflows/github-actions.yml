@@ -1,0 +1,21 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 28177
+        script: |
+          cd learning_path
+          git pull
+          docker-compose up --build -d
