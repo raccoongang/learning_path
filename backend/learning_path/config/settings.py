@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-7se+-#*!8)l)$b==-=i01ts89*(-0ig20-nlm!io7jh64ok=9z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+  'localhost',
+  '127.0.0.1',
+  '0.0.0.0',
+  'learning-path.raccoongang.com']
 
 SITE_ID = 1
 
