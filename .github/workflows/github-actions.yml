@@ -17,5 +17,7 @@ jobs:
         port: 28177
         script: |
           cd learning_path
-          git pull
+          docker stop $(docker ps -aq)
+          git fetch origin
+          git reset --hard origin/main
           docker-compose up --build -d
