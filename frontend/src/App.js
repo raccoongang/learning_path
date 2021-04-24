@@ -1,11 +1,9 @@
-import {PathwayNode} from './Node';
 import {Switch, Route, Link} from "react-router-dom";
-import * as data from './mock.json';
-import Login from "./Login";
+import Home from './Home';
+import Login from './Login';
 
 
 function App() {
-    const nodeData = data.default;
     return (
         <div className="container">
             <nav className="mb-3">
@@ -15,7 +13,7 @@ function App() {
             <main>
                 <Switch>
                     <Route exact path={"/login/"} component={Login}/>
-                    <Route path={"/"} render={() => <PathwayNode {...nodeData} />}/>
+                    <Route path={"/"} component={Home}/>
                 </Switch>
             </main>
         </div>
