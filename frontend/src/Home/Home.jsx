@@ -7,11 +7,10 @@ export const PathwayContext = React.createContext();
 
 const Home = () => {
     return <PathwayProvider>
-        <h1 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
-            Start creating your pathway
-        </h1>
-        <AddResourseForm />
-        {/*<PathwayNode {...nodeData} />*/}
+        <h2 className="text-2xl m-5">Learning path 1</h2>
+        <h2 className="text-2xl m-5">Learning path 2</h2>
+        <h2 className="text-2xl m-5">...</h2>
+        <h2 className="text-2xl m-5">Learning path N</h2>
     </PathwayProvider>;
 };
 

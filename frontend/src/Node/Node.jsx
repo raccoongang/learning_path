@@ -34,7 +34,7 @@ const UserStatus = () => {
 
 const ChildNode = ({url, title, type}) => {
     return <div className='LearningAdditionalItem'>
-        <a href={url} className='LearningAdditionalLink' data-tip={title}>
+        <a href={url} target="_blank" className='LearningAdditionalLink' data-tip={title}>
             <span className='LearningAdditionalIconWrapper'>
                 <svg className='LearningAdditionalIcon'>
                     <use xmlns='http://www.w3.org/1999/xlink' xlinkHref={'#icon-' + type}/>
@@ -103,7 +103,7 @@ const PathwayNode = ({url, title, description, children}) => {
         <h2 className='LearningTitle'>{title}</h2>
         <p className='LearningDescription'>{description}</p>
         <div className='LearningShare'>
-            Share Link: <a href={url} className='LearningShareLink'>{url}</a>
+            Share Link: <a href={url} target="_blank" className='LearningShareLink'>{url}</a>
         </div>
         {children.map((item, idx) => <Node key={idx} {...item}/>)}
         <NotificationContainer/>

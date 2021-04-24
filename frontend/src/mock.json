@@ -1,6 +1,6 @@
 {
   "id": 1,
-  "url": "http://",
+  "url": "https://www.python.org/",
   "title": "Python Ninja",
   "description": "Python is a multi-paradigm programming language. Object-oriented programming and structured programming are fully supported, and many of its features ...",
   "image": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
@@ -8,9 +8,9 @@
   "children": [
     {
       "id": 11,
-      "url": "http://",
-      "title": "SubResource 1",
-      "description": "Some description",
+      "url": "https://medium.com/javascript-scene/the-missing-introduction-to-react-62837cb2fd76",
+      "title": "Missing introduction to React",
+      "description": "React is the world’s most popular JavaScript framework, but it’s not cool because it’s popular. It’s popular because it’s cool. Most React introductions jump right into showing you examples of how to use React, and skip the “why”.",
       "type": "article",
       "children": [
         {
@@ -29,9 +29,9 @@
         },
         {
           "id": 12,
-          "url": "http://",
-          "title": "SubResource 3",
-          "description": "Some description 3",
+          "url": "https://youtu.be/HvPfkZYuTzg",
+          "title": "Adults React To Coming Out TikToks",
+          "description": "Adults react to heartwarming coming out tiktoks. Watch to see their reactions.\nCheck out more episodes of Adults React",
           "type": "video"
         },
         {
@@ -44,18 +44,18 @@
       ]
     },
     {
-      "id": 11,
-      "url": "http://",
-      "title": "SubResource 1",
-      "description": "Some description",
+      "id": 12,
+      "url": "https://youtu.be/HvPfkZYuTzg",
+      "title": "Adults React To Coming Out TikToks",
+      "description": "Adults react to heartwarming coming out tiktoks. Watch to see their reactions.\nCheck out more episodes of Adults React",
       "type": "video",
       "children": []
     },
     {
       "id": 11,
-      "url": "http://",
-      "title": "SubResource 1",
-      "description": "Some description",
+      "url": "https://python-forum.io/Thread-Exception-with-raise-and-input",
+      "title": "Exception with raise and input",
+      "description": "Hello, I have a question about an assignment in my programming course Confused\nI need to create an exception so that only integer numbers can be accepted",
       "type": "generic",
       "children": [
         {
@@ -90,9 +90,9 @@
     },
     {
       "id": 11,
-      "url": "http://",
-      "title": "SubResource 1",
-      "description": "Some description",
+      "url": "https://www.edx.org/course/python-basics-for-data-science?index=product&queryID=deeb926406e0fa2f047540a7b6268f69&position=1",
+      "title": "Python Basics for Data Science",
+      "description": "This Python course provides a beginner-friendly introduction to Python for Data Science. Practice through lab exercises, and you'll be ready to create your first Python scripts on your own!",
       "type": "course",
       "children": [
         {
