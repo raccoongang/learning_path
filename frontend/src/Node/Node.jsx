@@ -5,11 +5,31 @@ import 'react-notifications/lib/notifications.css';
 
 import { Rating } from '../Rating';
 import './Node.scss';
+import ninjaImage from '../image/ninja.png';
+import pythonImage from '../image/python.png';
+import javascriptImage from '../image/javascript.png';
+import qaImage from '../image/qa.png';
 
 const createNotification = (type, message) => {
-    NotificationManager[type](message, null, 3000, () => {
-        console.log('Notification');
-    });
+    NotificationManager[type](message, null, 3000, () => {});
+};
+
+const UserStatus = () => {
+    return <div className='UserStatus'>
+        <span className='UserSkill'>
+            <img src={pythonImage} alt='python' className='UserSkillImage' />
+        </span>
+        <span className='UserSkill'>
+            <img src={qaImage} alt='' className='UserSkillImage' />
+        </span>
+        <span className='UserSkill'>
+            <img src={javascriptImage} alt='' className='UserSkillImage' />
+        </span>
+        <figure className='UserLogo'>
+            <img src={ninjaImage} alt='' className='UserImage'/>
+            <figcapture className='UserName'>User Full Name</figcapture>
+        </figure>
+    </div>;
 };
 
 const ChildNode = ({url, title, type}) => {
@@ -30,14 +50,14 @@ const Node = ({url, title, description, type, children}) => {
     const [feedback, toggleUnitFeedback] = useState(null);
     const unitFeedbackHandler = (type) => {
         if (type === feedback) {
-            createNotification('info',`You removed ${type} feedback from "${title}" unit.`);
+            createNotification('info',`You removed ${type} feedback from '${title}' unit.`);
             toggleUnitFeedback(null);
         } else if (type === 'like') {
             toggleUnitFeedback('like');
-            createNotification('info',`You liked "${title}" unit.`);
+            createNotification('info',`You liked '${title}' unit.`);
         } else {
             toggleUnitFeedback('dislike');
-            createNotification('info',`You disliked "${title}" unit.`);
+            createNotification('info',`You disliked '${title}' unit.`);
         }
 
         return feedback;
@@ -65,7 +85,7 @@ const Node = ({url, title, description, type, children}) => {
             </button>
         </div>
         <div className='LearningBottomWrapper'>
-            <div className="LearningAdditionalList">
+            <div className='LearningAdditionalList'>
                 {children.map((item, idx) => <ChildNode key={idx} {...item} /> )}
             </div>
             <Rating
@@ -78,7 +98,8 @@ const Node = ({url, title, description, type, children}) => {
 };
 
 const PathwayNode = ({url, title, description, children}) => {
-    return <div>
+    return <>
+        <UserStatus />
         <h2 className='LearningTitle'>{title}</h2>
         <p className='LearningDescription'>{description}</p>
         <div className='LearningShare'>
@@ -86,7 +107,7 @@ const PathwayNode = ({url, title, description, children}) => {
         </div>
         {children.map((item, idx) => <Node key={idx} {...item}/>)}
         <NotificationContainer/>
-    </div>;
+    </>;
 };
 
 export {PathwayNode};
