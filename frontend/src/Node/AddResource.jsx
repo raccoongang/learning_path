@@ -2,7 +2,7 @@ import React from 'react';
 import {Types} from "../constants";
 
 const AddResourseForm = ({onSubmit}) => {
-    return <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={onSubmit}>
+    return <form className="bg-white" onSubmit={onSubmit}>
         <div className="md:flex md:items-center mb-6">
             <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="title">
                 Name
@@ -51,7 +51,7 @@ const AddResourseForm = ({onSubmit}) => {
 
 const AddResource = () => {
 
-    return <div className="w-full max-w-md">
+    return <div className="max-w-sx mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-5">
         <AddResourseForm onSubmit={() => {}}/>
     </div>;
 };
