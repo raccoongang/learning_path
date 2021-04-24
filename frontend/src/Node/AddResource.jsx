@@ -2,14 +2,14 @@ import React, {useContext, useState} from 'react';
 import {Types} from "../constants";
 import {PathwayContext} from "../Pathway";
 
-const AddResourseForm = () => {
+const AddResourseForm = (props) => {
     const [formData, setFormData] = useState({
         type: Types.PATHWAY,
         title: '',
         description: '',
         url: '',
     });
-
+    const handleCloseModal = props.handleCloseModal;
     const pwCtx = useContext(PathwayContext);
 
     const handleChange = (e) => {
@@ -78,6 +78,12 @@ const AddResourseForm = () => {
                     type="button"
                     onClick={onSubmit}>
                     Add
+                </button>
+                <button
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    type="button"
+                    onClick={handleCloseModal}>
+                    Close
                 </button>
             </div>
         </form>
