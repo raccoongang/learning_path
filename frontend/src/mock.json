@@ -2,7 +2,8 @@
   "id": 1,
   "url": "http://",
   "title": "Python Ninja",
-  "description": "Some description",
+  "description": "Python is a multi-paradigm programming language. Object-oriented programming and structured programming are fully supported, and many of its features ...",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
   "type": "pathway",
   "children": [
     {
@@ -11,7 +12,36 @@
       "title": "SubResource 1",
       "description": "Some description",
       "type": "article",
-      "children": []
+      "children": [
+        {
+          "id": 12,
+          "url": "http://",
+          "title": "SubResource 1",
+          "description": "Some description 1",
+          "type": "article"
+        },
+        {
+          "id": 12,
+          "url": "http://",
+          "title": "SubResource 2",
+          "description": "Some description 2",
+          "type": "course"
+        },
+        {
+          "id": 12,
+          "url": "http://",
+          "title": "SubResource 3",
+          "description": "Some description 3",
+          "type": "video"
+        },
+        {
+          "id": 12,
+          "url": "http://",
+          "title": "SubResource 4",
+          "description": "Some description 4",
+          "type": "generic"
+        }
+      ]
     },
     {
       "id": 11,
@@ -27,7 +57,36 @@
       "title": "SubResource 1",
       "description": "Some description",
       "type": "generic",
-      "children": []
+      "children": [
+        {
+          "id": 12,
+          "url": "http://",
+          "title": "SubResource 2",
+          "description": "Some description 2",
+          "type": "course"
+        },
+        {
+          "id": 12,
+          "url": "http://",
+          "title": "SubResource 1",
+          "description": "Some description 1",
+          "type": "article"
+        },
+        {
+          "id": 12,
+          "url": "http://",
+          "title": "SubResource 3",
+          "description": "Some description 3",
+          "type": "video"
+        },
+        {
+          "id": 12,
+          "url": "http://",
+          "title": "SubResource 4",
+          "description": "Some description 4",
+          "type": "video"
+        }
+      ]
     },
     {
       "id": 11,
@@ -35,7 +94,50 @@
       "title": "SubResource 1",
       "description": "Some description",
       "type": "course",
-      "children": []
+      "children": [
+        {
+          "id": 12,
+          "url": "http://",
+          "title": "SubResource 1",
+          "description": "Some description 1",
+          "type": "article"
+        },
+        {
+          "id": 12,
+          "url": "http://",
+          "title": "SubResource 3",
+          "description": "Some description 3",
+          "type": "video"
+        },
+        {
+          "id": 12,
+          "url": "http://",
+          "title": "SubResource 4",
+          "description": "Some description 4",
+          "type": "video"
+        },
+        {
+          "id": 12,
+          "url": "http://",
+          "title": "SubResource 1",
+          "description": "Some description 1",
+          "type": "article"
+        },
+        {
+          "id": 12,
+          "url": "http://",
+          "title": "SubResource 3",
+          "description": "Some description 3",
+          "type": "video"
+        },
+        {
+          "id": 12,
+          "url": "http://",
+          "title": "SubResource 4",
+          "description": "Some description 4",
+          "type": "video"
+        }
+      ]
     }
   ]
 }

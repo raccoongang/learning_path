@@ -1,0 +1,210 @@
+@mixin on-circle($item-count, $circle-size, $item-size) {
+    position: relative;
+    width:  $circle-size;
+    height: $circle-size;
+    padding: 0;
+    border-radius: 50%;
+    list-style: none;
+
+    .UserSkill {
+        position: absolute;
+        top:  50%;
+        left: 50%;
+        width:  $item-size;
+        height: $item-size;
+        margin: -($item-size / 2);
+
+        $angle: (360 / $item-count);
+        $rot: 0;
+
+        @for $i from 1 through $item-count {
+            &:nth-of-type(#{$i}) {
+                transform:
+                        rotate($rot * 1deg)
+                        translate($circle-size / 1.5)
+                        rotate($rot * -1deg);
+            }
+
+            $rot: $rot + $angle;
+        }
+    }
+}
+
+
+.LearningTitle {
+    margin: 20px 0 15px;
+    font-weight: 700;
+    font-size: 23px;
+}
+
+.LearningDescription {
+    margin: 0 0 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.LearningShare {
+    margin-bottom: 10px;
+}
+
+.LearningItem {
+    margin-bottom: 15px;
+}
+
+.LearningItemContent {
+    border: 1px solid #eee;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &:not(&_marked):hover .Btn {
+        opacity: 1;
+    }
+
+    &_marked {
+        border-color: rgba(green, .5);
+
+        &,
+        &:hover,
+        &:focus {
+            .Btn {
+                opacity: 1;
+                background: rgba(green, .5);
+            }
+        }
+    }
+}
+
+.LearningItemTitle,
+.LearningShareLink {
+    color: #0b6bad;
+    text-decoration: none;
+    transition: opacity .2s ease-in-out;
+
+    &:hover,
+    &:focus {
+        opacity: .7;
+    }
+}
+
+.LearningItemContentWrapper {
+    margin-left: 30px;
+    margin-right: 20px;
+}
+
+.LearningIconWrapper,
+.LearningAdditionalIconWrapper {
+    display: inline-block;
+    border: 1px solid silver;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.LearningIconWrapper {
+    background: #222;
+    color: #fff;
+}
+
+.LearningAdditionalIconWrapper {
+    width: 30px;
+    height: 30px;
+}
+
+.LearningIcon,
+.LearningAdditionalIcon {
+    max-width: 60%;
+    max-height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.LearningAdditionalList {
+    margin: 5px 20px 0 0;
+    display: flex;
+    align-content: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.LearningAdditionalLink {
+    color: #222;
+    opacity: .5;
+    transition: opacity .2s ease-in-out;
+    margin-right: 15px;
+
+    &:hover,
+    &:focus {
+        opacity: 1;
+    }
+}
+
+.Btn {
+    padding: 6px 20px;
+    border: none;
+    color: #222;
+    background: transparent;
+    border-radius: 5px;
+    flex-shrink: 0;
+
+    &:hover,
+    &:focus {
+        cursor: pointer;
+        opacity: .7;
+    }
+}
+
+.Btn_ready {
+    border: 1px solid silver;
+    opacity: .3;
+    background: green;
+    margin-left: auto;
+    color: #fff;
+}
+
+.LearningBottomWrapper {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.UserStatus {
+    @include on-circle($item-count: 3, $circle-size: 250px, $item-size: 80px);
+
+    margin: 100px auto 100px;
+    width: 200px;
+    position: relative;
+}
+
+.UserLogo {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.UserName {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.UserSkill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: url('../image/progress-cicle.png') no-repeat center center / contain;
+}
+
+.UserSkillImage {
+    max-width: 50%;
+    max-height: 50%;
+}
